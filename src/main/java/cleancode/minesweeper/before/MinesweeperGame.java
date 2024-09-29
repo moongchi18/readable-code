@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class MinesweeperGame {
 
-    private static String[][] board = new String[8][10]; // 출력되는 게임판
-    private static Integer[][] landMineCounts = new Integer[8][10]; // 해당 위치 주위의 지뢰 개수
-    private static boolean[][] landMines = new boolean[8][10]; // 지뢰 여부
+    private static final String[][] board = new String[8][10]; // 출력되는 게임판
+    private static final Integer[][] landMineCounts = new Integer[8][10]; // 해당 위치 주위의 지뢰 개수
+    private static final boolean[][] landMines = new boolean[8][10]; // 지뢰 여부
     private static int gameStatus = 0; // 0: 게임 중, 1: 승리, -1: 패배
 
     public static void main(String[] args) {
@@ -80,6 +80,10 @@ public class MinesweeperGame {
 
 //          게임 종료 체크
 //          @FIXME 승리조건 개선 필요, 지뢰 갯수와 깃발 갯수가 일치하고 지뢰에 깃발이 꽂혀야 승리로 판단 필요
+//          gameStatus : 진행 완료 및 실패 여부
+//          승리조건 1 : 게임 진행 완료(gameStatus = 1)
+//          승리조건 2 : 깃발 갯수 = 지뢰 갯수
+//          승리조건 3 : 깃발 위치 = 지뢰 위치
             if (gameStatus == 1) {
                 System.out.println("지뢰를 모두 찾았습니다. GAME CLEAR!");
                 break;
@@ -93,11 +97,15 @@ public class MinesweeperGame {
             System.out.println();
             System.out.println("선택할 좌표를 입력하세요. (예: a1)");
             String input = scanner.nextLine();
-            System.out.println("선택한 셀에 대한 행위를 선택하세요. (1: 오픈, 2: 깃발 꽂기)");
-            String input2 = scanner.nextLine();
+
             char c = input.charAt(0);
             char r = input.charAt(1);
             int col;
+
+
+            //          위치 변경
+            System.out.println("선택한 셀에 대한 행위를 선택하세요. (1: 오픈, 2: 깃발 꽂기)");
+            String input2 = scanner.nextLine();
 
 //          열 위치 문자를 숫자로 변환
             switch (c) {
@@ -207,7 +215,8 @@ public class MinesweeperGame {
             board[row][col] = String.valueOf(landMineCounts[row][col]);
             return;
 
-//      주변 지뢰 개수가 0인 경우 확인 완료 표시
+//      첫 호출 + 재귀 호출
+//      주변 지뢰 개수가 0이 아닌 경우 숫자 표시
         } else {
             board[row][col] = "■";
         }
