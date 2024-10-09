@@ -6,9 +6,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import cleancode.studycafe.asis.model.StudyCafeLockerPass;
-import cleancode.studycafe.asis.model.StudyCafePass;
-import cleancode.studycafe.asis.model.StudyCafePassType;
+import cleancode.studycafe.before.model.StudyCafeLockerPass;
+import cleancode.studycafe.before.model.StudyCafePass;
+import cleancode.studycafe.before.model.StudyCafePassType;
 
 public class StudyCafeFileHandler {
 

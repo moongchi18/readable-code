@@ -1,12 +1,13 @@
 package cleancode.studycafe.before;
 
-import cleancode.studycafe.asis.exception.AppException;
-import cleancode.studycafe.asis.io.InputHandler;
-import cleancode.studycafe.asis.io.OutputHandler;
-import cleancode.studycafe.asis.io.StudyCafeFileHandler;
-import cleancode.studycafe.asis.model.StudyCafeLockerPass;
-import cleancode.studycafe.asis.model.StudyCafePass;
-import cleancode.studycafe.asis.model.StudyCafePassType;
+
+import cleancode.studycafe.before.exception.AppException;
+import cleancode.studycafe.before.io.InputHandler;
+import cleancode.studycafe.before.io.OutputHandler;
+import cleancode.studycafe.before.io.StudyCafeFileHandler;
+import cleancode.studycafe.before.model.StudyCafeLockerPass;
+import cleancode.studycafe.before.model.StudyCafePass;
+import cleancode.studycafe.before.model.StudyCafePassType;
 
 import java.util.List;
 
