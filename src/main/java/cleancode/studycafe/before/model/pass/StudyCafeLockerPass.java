@@ -1,15 +1,17 @@
-package cleancode.studycafe.before.model;
+package cleancode.studycafe.before.model.pass;
 
 public class StudyCafeLockerPass {
 
     private final StudyCafePassType passType;
     private final int duration;
     private final int price;
+    private boolean isUsingLocker;
 
     private StudyCafeLockerPass(StudyCafePassType passType, int duration, int price) {
         this.passType = passType;
         this.duration = duration;
         this.price = price;
+        this.isUsingLocker = false;
     }
 
     public static StudyCafeLockerPass of(StudyCafePassType passType, int duration, int price) {
@@ -41,4 +43,11 @@ public class StudyCafeLockerPass {
         return "";
     }
 
+    public void updateUsingLocker(boolean useLocker) {
+        isUsingLocker = useLocker;
+    }
+
+    public boolean isUsingLocker() {
+        return isUsingLocker;
+    }
 }

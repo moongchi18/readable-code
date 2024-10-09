@@ -1,4 +1,6 @@
-package cleancode.studycafe.before.model;
+package cleancode.studycafe.before.model.pass;
+
+import java.util.Objects;
 
 public class StudyCafePass {
 
@@ -47,4 +49,20 @@ public class StudyCafePass {
         return "";
     }
 
+    public boolean isSamePassType(StudyCafePassType passType) {
+        return StudyCafePassType.isSamePassType(this.passType, passType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudyCafePass that = (StudyCafePass) o;
+        return duration == that.duration && price == that.price && Double.compare(discountRate, that.discountRate) == 0 && passType == that.passType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(passType, duration, price, discountRate);
+    }
 }
